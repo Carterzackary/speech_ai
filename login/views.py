@@ -588,8 +588,7 @@ def speachDateScore(request, date):
         # print(date)
 
         if uid:
-            # 姿态
-            exists = models.Speach.objects.filter(date=date).exists()
+            exists = models.Speach.objects.filter(uid=uid, date=date).exists()
 
             if exists:
                 dates = models.Speach.objects.filter(uid=uid).values('date').distinct()
@@ -710,7 +709,7 @@ def speachDateScore(request, date):
                                'pro_viual': pro_viual, 'feedback': feedback
                                })  # pro_viual是音准可视化字符串，feedback是生成的反馈字符串
             else:
-                return HttpResponse('<h1>该日期下并没有评测 !</h1>')
+                return HttpResponse('<h1>该时间您下并没有进行评测 !</h1>')
 
         else:
             return redirect("/login/tip/您还未登录 !/")
