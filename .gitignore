@@ -12,3 +12,6 @@
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/speech_ai.iml
 /.idea/vcs.xml
+*.pyc
+**.pyc
+***.pyc
