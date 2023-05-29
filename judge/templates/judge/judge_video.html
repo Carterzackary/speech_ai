@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="{% static 'favicon/logo.svg' %}">
+
+    <title>评委</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new_judge_video.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/screen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ie.css' %}" type="text/css" media="screen, projection">
+    <link href="{% static 'css/lity.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/fontCharacter.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <style>
+        .container2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .score-form {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .score-form label {
+            margin-bottom: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .form-row input {
+            flex-grow: 1;
+            border: 1px solid #fff;
+            border-bottom: 3px solid var(--primary-color);
+            color: #595959;
+            font-size: 10px;
+            height: auto;
+            padding: 10px;
+            transition: all 0.2s linear 0s;
+            unicode-bidi: embed;
+            width: 100%;
+            background: transparent;
+            font-style: italic;
+            border-radius: 8px;
+        }
+
+        .custom-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-top: 10px;
+            outline: none;
+        }
+
+        /* 鼠标悬停时改变按钮的背景颜色 */
+        .custom-button:hover {
+            background-color: #45a049;
+        }
+        .submit-button {
+            display: inline-block;
+            background-color: #67c2f5;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 2px;
+            outline: none;
+            transition: background-color 0.3s ease; /* 添加过渡效果 */
+        }
+
+        .submit-button:hover {
+            background-color: #1da8f5;
+        }
+
+        .submit-button:active {
+            background-color: #408e40; /* 设置按钮在点击时的背景颜色 */
+        }
+
+        .stretched-img {
+          width: 400px;
+          height: 170px;
+        }
+
+    </style>
+
+</head>
+
+<body background="{% static 'images/blue-background-img.png' %}">
+        <div class="hero_area" style="overflow-y: scroll;">
+            <header class="header_section">
+                <div class="container" style="align-items:center; text-align:center; ">
+                    <nav class="navbar navbar-expand-lg custom_nav-container " >
+                        <a class="navbar-brand" href="/index">
+                           <svg t="1685327063583" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            p-id="2074" width="60px" height="60px">
+                            <path d="M840.51491965 202.02394239l-19.48151603-19.48151604c-49.1751171-49.1751171-128.51516225-49.1751171-177.53317036-0.15710901l-52.00307912 52.00307911L788.51184055 431.24597383l52.0030791-52.0030791c49.01800811-48.8608991 49.01800811-128.35805326 0-177.21895234zM566.3597141 259.52583649C530.69597103 295.18957957 521.42654002 346.72133168 537.60876705 391.02606977l-0.157109 0.15710898-284.99572656 285.30994457c-5.49881501 5.49881501-5.49881501 14.61113702 0 20.26706105l27.49407505 27.49407505-64.57179914 64.57179914L233.91706944 807.36492059l64.41469013-64.41469014 27.49407506 27.49407508c2.82796201 2.82796201 6.28436002 4.08483399 10.05497602 4.08483399 4.08483399 0 7.54123201-1.25687199 10.36919402-4.08483399l142.34075427-142.34075431v213.66824043h65.98578015V561.96066209L631.40284023 485.29146996c44.46184709 16.33933604 96.15070819 6.91279601 131.81445127-28.75094707l0.78554499-0.785545L566.9881501 258.74029149l-0.628436 0.785545zM554.73364807 521.42654002l-65.98578011 65.98578012-152.70994831 152.70994831-53.4170601-53.57416911 268.34217254-268.34217253c4.39905201 6.59857803 9.58364903 12.88293803 15.39668201 18.85308005l19.48151604 19.48151603c5.81303301 5.81303301 12.09739302 10.84052103 18.53886204 15.23957304L554.73364807 521.42654002z" fill="#2c2c2c" p-id="2075"></path></svg>
+
+                            <span>
+                              Speech scoring system
+                            </span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="s-1"> </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                                <ul class="navbar-nav  ">
+
+                                    {% if login_status %}
+
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="/judge/video/"> 比赛打分 </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/judge/finalScore/"> 赛事结果 </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link last_link" href="/login/logout"> 注销 </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">{{ user_name }}(评委)</a>
+                                        </li>
+
+                                    {% else %}
+
+                                        <li class="nav-item">
+                                            <a class="nav-link last_link" href="/login"> 登录 </a>
+                                        </li>
+
+                                    {% endif %}
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <h2 class="icon">选手视频</h2>
+
+            <div class="banner-l hidden-sm hidden-xs">
+                <img src="{% static 'img/banners/banner.png' %}" class="img-responsive">
+            </div>
+                
+
+            <div class="row">
+                <div class="col-lg-2 col-md-4 hidden-sm hidden-xs" style="padding-left:20px;">
+                   <aside class="dark-bg">
+                      <article>
+                         <h2 class="icon" style="font-size: 24px;">评分</h2>
+                        <script>
+                            function toggleScoreForm(id) {
+                                const scoreForm = document.getElementById(`score-form-${id}`);
+                                scoreForm.style.display = scoreForm.style.display === 'none' ? 'flex' : 'none';
+                            }
+                        </script>
+
+                        <div class="container2">
+
+                            {% for competitor in competitors %}
+                                <div>
+
+                                    <button onclick="toggleScoreForm({{ forloop.counter }})" class="custom-button">
+                                        <span>{{ competitor.Cptr_Name }}</span>
+                                    </button>
+
+                                </div>
+
+                                <form class="score-form" id="score-form-{{ forloop.counter }}">
+                                    <input type="text" style="display:none" id="cptrID" name="cptrID" value="{{ competitor.Cptr_id }}">
+                                    <div class="form-row">
+                                        <label for="emotion-score-{{ forloop.counter }}" class="white-label">情感饱和度:</label>
+                                        <input type="number" id="emotion-score-{{ forloop.counter }}" name="qinggan" min="0" max="100" class="red-number-input">
+                                    </div>
+                                    <br>
+                                    <div class="form-row">
+                                        <label for="movement-score-{{ forloop.counter }}" class="white-label">肢体动作适当:</label>
+                                        <input type="number" id="movement-score-{{ forloop.counter }}" name="ziti" min="0" max="100" class="red-number-input">
+                                    </div>
+                                    <br>
+                                    <div class="form-row">
+                                        <label for="logic-score-{{ forloop.counter }}" class="white-label">演讲逻辑性:</label>
+                                        <input type="number" id="logic-score-{{ forloop.counter }}" name="luoji" min="0" max="100" class="red-number-input">
+                                    </div>
+                                    <br>
+                                    <div class="form-row">
+                                        <label for="eloquence-score-{{ forloop.counter }}" class="white-label">演讲文采性:</label>
+                                        <input type="number" id="eloquence-score-{{ forloop.counter }}" name="wencai" min="0" max="100" class="red-number-input">
+                                    </div>
+                                    <button type="submit" class="submit-button">提交</button>
+                                </form>
+                            {% endfor %}
+                        </div>
+                      </article>
+                      <div class="clearfix spacer"></div>
+                   </aside>
+                </div>
+
+                <div class="col-lg-8 col-md-10">
+                    <div class="container3">
+                        <div class="row auto-clear">
+                            {% for competitor in competitors %}
+                                <article class="col-lg-3 col-md-6 col-sm-4">
+                                  <div class="post post-medium">
+                                    <div class="thumbr">
+                                      <a class="post-thumb" href="/media/{{ competitor.video_path }}" data-lity>
+                                        <span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>
+
+                                        <img class="img-responsive stretched-img" src="/media/{{ competitor.img_path }}" alt="{{ competitor.Cptr_Name }}">
+
+                                      </a>
+                                    </div>
+                                    <div class="infor">
+                                      <h4>
+                                        <b style="font-size: 15px;">{{ competitor.Cptr_Name }}</b>
+                                      </h4>
+                                    </div>
+                                  </div>
+                                </article>
+                            {% endfor %}
+                         </div>
+                    </div>
+                </div>
+
+               {% comment %} <div class="col-lg-1 col-md-0" style="height:auto; width:auto;">
+                    <img src="{% static 'img/banners/banner.png' %}" class="img-responsive" >
+                </div>{% endcomment %}
+
+        </div>
+
+        <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+
+        <script>
+
+            {#只能输入整数或一位两位小数#}
+            $('input').on('input', function() {
+              let val = this.value;
+              let regex = /^([1-9][0-9]?)(\.\d{0,2})?$|100$/;
+              if (!regex.test(val)) {
+                this.value = val.slice(0, -1);
+              }
+            });
+
+            {#提交表单#}
+            $(document).ready(function() {
+              $(".score-form").submit(function(event) {
+                event.preventDefault();
+
+                let formData = {
+                  "cptrID": $(this).find("input[name='cptrID']").val(),
+                  "qinggan": $(this).find("input[name='qinggan']").val(),
+                  "ziti": $(this).find("input[name='ziti']").val(),
+                  "luoji": $(this).find("input[name='luoji']").val(),
+                  "wencai": $(this).find("input[name='wencai']").val(),
+                  "csrfmiddlewaretoken": "{{ csrf_token }}"
+                };
+                console.log(formData);
+
+                $.ajax({
+                  type: "POST",
+                  url: "/judge/humanScore/",
+                  data: formData,
+                  success: function(ret) {
+                    alert('提交成功');
+                  },
+                  error: function(ret) {
+                    console.log("提交失败 !");
+                  }
+                });
+              });
+            });
+
+        </script>
+
+    </body>
+</html>

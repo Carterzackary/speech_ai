@@ -1,0 +1,395 @@
+{% extends 'WafTemp/layout.html' %}
+{% load static %}
+{% block cc_active %}active{% endblock %}
+{% block diplayWebDefend %}block{% endblock %}
+
+{% block main_content %}
+                 <div class="section__content section__content--p35">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <!-- TABLE TITLE-->
+                                <h3 class="title-5 m-b-35">CC攻击防护</h3>
+                             <a  style="font-size: 15px">，</a>
+
+                                <!-- TABLE TOOL-->
+
+            <section>
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-xl-4">
+                              <div class="task-progress">
+                                        <h3 class="title-3">CC攻击防护</h3>
+                                  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">防护模式</legend>
+      <div class="col-sm-10">
+        <div class="form-check" >
+          <input class="form-check-input" type="radio" name="gridRadios" id="model1" value="forbid" onclick="switchStatus(2)"
+                {%   if openrule == "test" %}
+                                                             checked=true>
+                                                             {% else %}
+                                                                        >
+                                                            {% endif %}
+
+          <label class="form-check-label" for="gridRadios1" >
+            测试模式
+          </label>
+        </div>
+            <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="model2" value="check"  onclick="switchStatus(1)"
+                                        {%   if openrule == "default" %}
+                                                             checked=true>
+                                                             {% else %}
+                                                                        >
+                                                            {% endif %}
+          <label class="form-check-label" for="gridRadios1">
+            标准模式
+          </label>
+        </div>
+
+       <div class="form-check" >
+          <input class="form-check-input" type="radio" name="gridRadios" id="model1" value="forbid" onclick="switchStatus(0)"
+                {%   if openrule != "test" and openrule != 'default' %}
+                                                             checked=true>
+                                                             {% else %}
+                                                                        >
+                                                            {% endif %}
+
+          <label class="form-check-label" for="gridRadios1">
+            关闭
+          </label>
+        </div>
+
+      </div>
+    </div>
+  </fieldset>
+
+                                </div>
+                            </div>
+                            {# 仪表盘 #}
+                        <div class="col-lg-6">
+                        <div class="au-card m-b-30">
+                            <div class="au-card-inner">
+                                <h3 class="title-2 m-b-40">网站响应速度(条/秒)</h3>
+                                   <div id="chart" style="width: 105%; height: 450%;"></div>
+                                      <script type="text/javascript">
+                                          var data = {{ rsp_speed }}
+                                        const gaugeData = [
+                                          {
+                                            value: data[0].toFixed(1),
+                                            name: '最小值',
+                                            title: {
+                                              offsetCenter: ['-40%', '80%']
+                                            },
+                                            detail: {
+                                              offsetCenter: ['-40%', '95%']
+                                            },
+                                            itemStyle: {
+                                              color: '#fac858' // 黄色
+                                            },
+
+                                          },
+                                          {
+                                            value: data[2].toFixed(1),
+                                            name: '中位数',
+                                            title: {
+                                              offsetCenter: ['0%', '80%']
+                                            },
+                                            detail: {
+                                              offsetCenter: ['0%', '95%']
+                                            },
+                                            itemStyle: {
+                                              color: '#5470c6' // 蓝色
+                                            }
+                                          },
+                                                                                      {
+                                            value: data[1].toFixed(1),
+                                            name: '最大值',
+                                            title: {
+                                              offsetCenter: ['40%', '80%']
+                                            },
+                                            detail: {
+                                              offsetCenter: ['40%', '95%']
+                                            },
+                                            itemStyle: {
+                                              color: '#91cc75' // 绿色
+                                            },
+                                          },
+                                        ];
+
+                                        option = {
+                                          series: [
+                                            {
+                                              type: 'gauge',
+                                              anchor: {
+                                                show: true,
+                                                showAbove: true,
+                                                size: 18,
+                                                itemStyle: {
+                                                  color: '#FAC858'
+                                                }
+                                              },
+                                              pointer: {
+                                                icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',
+                                                width: 8,
+                                                length: '80%',
+                                                offsetCenter: [0, '8%']
+                                              },
+                                              progress: {
+                                                show: true,
+                                                overlap: true,
+                                                roundCap: true
+                                              },
+                                              axisLine: {
+                                                roundCap: true,
+                                              },
+                                              data: gaugeData,
+                                              max:Math.round(Math.ceil(data[1] / 10) * 10 * Math.pow(10, -Math.floor(Math.log10(Math.ceil(data[1])))) / Math.pow(10, -Math.floor(Math.log10(Math.ceil(data[1]))))),
+                                              title: {
+                                                fontSize: 14
+                                              },
+                                              detail: {
+                                                width: 40,
+                                                height: 14,
+                                                fontSize: 14,
+                                                color: '#fff',
+                                                backgroundColor: 'inherit',
+                                                borderRadius: 3,
+                                                formatter: '{value}'
+                                              }
+                                            }
+                                          ]
+                                        };
+
+                                        var chart = echarts.init(document.getElementById('chart'));
+                                        chart.setOption(option);
+
+                                      </script>
+                            </div>
+                        </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                </div></section>
+
+                                <!-- END DATA TABLE -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+{#            <!-- modal large -->#}
+{#			<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">#}
+{#				<div class="modal-dialog modal-lg" role="document">#}
+{#					<div class="modal-content">#}
+{#						<div class="modal-header">#}
+{#							<h5 class="modal-title" id="largeModalLabel">添加规则</h5>#}
+{#							<button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#								<span aria-hidden="true">&times;</span>#}
+{#							</button>#}
+{#						</div>#}
+{#						<div class="modal-body">#}
+{##}
+{#								<form method="post">#}
+{#                    {% csrf_token %}#}
+{##}
+{#                                    <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text" >规则名</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control"id="ruleName" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{##}
+{#                                        <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text" >正则表达式</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control" id="regex" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{#                                        <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text" >类型</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control"  id="type" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{##}
+{#                                        <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text">描述</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control"  id="dcp" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect" id="url" checked>#}
+{#                                      <label class="form-check-label" for="url">检查URL</label>#}
+{#                                    </div>#}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect"id="cookie" checked>#}
+{#                                      <label class="form-check-label" for="cookie">检查COOKIE</label>#}
+{#                                    </div>#}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect"id="post" checked>#}
+{#                                      <label class="form-check-label" for="post">检查POST</label>#}
+{#                                    </div>#}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect"id="headers" checked>#}
+{#                                      <label class="form-check-label" for="headers">检查HEADERS</label>#}
+{#                                    </div>#}
+{#                                    <div>#}
+{##}
+{#                                        </div>#}
+{##}
+{#                        </form>#}
+{##}
+{#						</div>#}
+{#						<div class="modal-footer">#}
+{#							<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>#}
+{#							<button type="button" class="btn btn-primary" onclick="addRule()">添加</button>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#			<!-- end modal large -->#}
+{#      <div>#}
+{#                  {% for config in configlist %}#}
+{#                  <!-- modal large -->#}
+{#    <div class="modal fade" id="{{ config.name }}" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">#}
+{#        <div class="modal-dialog modal-lg" role="document">#}
+{#            <div class="modal-content">#}
+{#                <div class="modal-header">#}
+{#                    <h5 class="modal-title" id="largeModalLabel">{{ config.name }}</h5>#}
+{#                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                        <span aria-hidden="true">&times;</span>#}
+{#                    </button>#}
+{#                </div>#}
+{#                <div class="modal-body">#}
+{#                   <form method="post">#}
+{#                    {% csrf_token %}#}
+{##}
+{#                                    <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text" >规则名</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control" id="{{ config.name }}newname" value="{{ config.name }}" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{##}
+{#                                        <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text" >正则表达式</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control" id="{{ config.name }}regex" value="{{ config.regex }}" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{#                                        <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text" >类型</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control"  id="{{ config.name }}type" value="{{ config.type }}" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{##}
+{#                                        <div class="input-group mb-3">#}
+{#                                      <div class="input-group-prepend">#}
+{#                                        <span class="input-group-text">描述</span>#}
+{#                                      </div>#}
+{#                                      <input type="text" class="form-control"  id="{{ config.name }}dcp" value="{{ config.dcp }}" aria-label="Default" aria-describedby="inputGroup-sizing-default">#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect"id="{{ config.name }}url" {% if config.chkurl == "1"%}checked{% endif %}>#}
+{#                                      <label class="form-check-label" for="">检查URL</label>#}
+{#                                    </div>#}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect"id="{{ config.name }}cookie"{% if config.chkcookie == "1"%}checked{% endif %}>#}
+{#                                      <label class="form-check-label" for="cookie">检查COOKIE</label>#}
+{#                                    </div>#}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect"id="{{ config.name }}post" {% if config.chkpost == "1"%}checked{% endif %}>#}
+{#                                      <label class="form-check-label" for="post">检查POST</label>#}
+{#                                    </div>#}
+{#                                    <div class="form-check form-switch">#}
+{#                                      <input class="form-check-input" type="checkbox" name = "ruleSelect"id="{{ config.name }}headers" {% if config.chkheader == "1"%}checked{% endif %}>#}
+{#                                      <label class="form-check-label" for="headers">检查HEADERS</label>#}
+{#                                    </div>#}
+{#                                    <div>#}
+{##}
+{#                                        </div>#}
+{##}
+{#                        </form>#}
+{#                </div>#}
+{#                <div class="modal-footer">#}
+{#                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>#}
+{#                    <button type="button" class="btn btn-primary" onclick="setRule('{{ config.name }}')">确定</button>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!-- end modal large -->#}
+{#                      <!-- modal small -->#}
+{#			<div class="modal fade" id="{{ config.name }}del" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">#}
+{#				<div class="modal-dialog modal-sm" role="document">#}
+{#					<div class="modal-content">#}
+{#						<div class="modal-header">#}
+{#							<h5 class="modal-title" id="smallmodalLabel">删除规则</h5>#}
+{#							<button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#								<span aria-hidden="true">&times;</span>#}
+{#							</button>#}
+{#						</div>#}
+{#						<div class="modal-body">#}
+{#							<p>#}
+{#								是否确定删除规则'{{ config.name }}'#}
+{#							</p>#}
+{#						</div>#}
+{#						<div class="modal-footer">#}
+{#							<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>#}
+{#							<button type="button" class="btn btn-primary" onclick="delRule('{{ config.name }}')">确定</button>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#			<!-- end modal small -->#}
+{#              {%  endfor %}#}
+{#            </div>#}
+
+
+    <!-- ajax实现转换状态逻辑 -->
+    <script>
+    function switchStatus(n){
+        if (n==0){
+            rule = '0'
+        }
+           if (n==1){
+            rule = 'default'
+        }
+           if (n==2){
+            rule = 'test'
+        }
+
+        var url = "{% url 'WoofWaf-views-ccSwitch' %}" + "?rule=" + rule ;
+        var xhr ;
+        if(window.ActiveXObject){
+            xhr = new ActiveXObject("Microsoft.XMLHTTP")
+        }else if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest()
+        }
+        xhr.open("get",url,true)
+        xhr.send()
+        xhr.onreadystatechange = function (){
+            if (xhr.readyState==4 && xhr.status==200){
+                rsp = xhr.responseText
+                {#alert(rsp)#}
+            }
+        }
+};
+
+    </script>
+
+           {% endblock %}

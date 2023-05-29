@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ {% load static %}
+<head>
+
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Admin</title>
+    <link rel="icon" href="{% static 'favicon/logo.svg' %}">
+
+    <!-- Fontfaces CSS-->
+    <link href="{% static 'css/font-face.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-5/css/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'vendor/bootstrap-4.1/bootstrap.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'vendor/animsition/animsition.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/wow/animate.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/slick/slick.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" href="{%  static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%  static 'css/dataTables.bootstrap5.min.css' %}">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap-select.min.css' %}">
+
+    <link href="{% static 'css/fontCharacter.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+{% block css %}{% endblock %}
+<script src="{% static 'js/w_echarts.min.js' %}"></script>
+</head>
+
+<body>
+
+
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        {% comment %}<a class="logo" href="index.html">
+                            <img src="{% static 'images/icon/logo.png' %}" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>{% endcomment %}
+
+                        <a class="navbar-brand" href="/index">
+                        <svg t="1685327063583" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            p-id="2074" width="60px" height="60px">
+                            <path d="M840.51491965 202.02394239l-19.48151603-19.48151604c-49.1751171-49.1751171-128.51516225-49.1751171-177.53317036-0.15710901l-52.00307912 52.00307911L788.51184055 431.24597383l52.0030791-52.0030791c49.01800811-48.8608991 49.01800811-128.35805326 0-177.21895234zM566.3597141 259.52583649C530.69597103 295.18957957 521.42654002 346.72133168 537.60876705 391.02606977l-0.157109 0.15710898-284.99572656 285.30994457c-5.49881501 5.49881501-5.49881501 14.61113702 0 20.26706105l27.49407505 27.49407505-64.57179914 64.57179914L233.91706944 807.36492059l64.41469013-64.41469014 27.49407506 27.49407508c2.82796201 2.82796201 6.28436002 4.08483399 10.05497602 4.08483399 4.08483399 0 7.54123201-1.25687199 10.36919402-4.08483399l142.34075427-142.34075431v213.66824043h65.98578015V561.96066209L631.40284023 485.29146996c44.46184709 16.33933604 96.15070819 6.91279601 131.81445127-28.75094707l0.78554499-0.785545L566.9881501 258.74029149l-0.628436 0.785545zM554.73364807 521.42654002l-65.98578011 65.98578012-152.70994831 152.70994831-53.4170601-53.57416911 268.34217254-268.34217253c4.39905201 6.59857803 9.58364903 12.88293803 15.39668201 18.85308005l19.48151604 19.48151603c5.81303301 5.81303301 12.09739302 10.84052103 18.53886204 15.23957304L554.73364807 521.42654002z" fill="#2c2c2c" p-id="2075"></path></svg>
+
+                        <span>
+                          Speech scoring system
+                        </span>
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>cnm</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Dashboard 2</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-bar"></i>Charts</a>
+                        </li>
+
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-copy"></i>Pages</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="login.html">Login</a>
+                                </li>
+                                <li>
+                                    <a href="register.html">Register</a>
+                                </li>
+                                <li>
+                                    <a href="forget-pass.html">Forget Password</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-desktop"></i>UI Elements</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="button.html">Button</a>
+                                </li>
+                                <li>
+                                    <a href="badge.html">Badges</a>
+                                </li>
+                                <li>
+                                    <a href="tab.html">Tabs</a>
+                                </li>
+                                <li>
+                                    <a href="card.html">Cards</a>
+                                </li>
+                                <li>
+                                    <a href="alert.html">Alerts</a>
+                                </li>
+                                <li>
+                                    <a href="progress-bar.html">Progress Bars</a>
+                                </li>
+                                <li>
+                                    <a href="modal.html">Modals</a>
+                                </li>
+                                <li>
+                                    <a href="switch.html">Switchs</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Grids</a>
+                                </li>
+                                <li>
+                                    <a href="fontawesome.html">Fontawesome Icon</a>
+                                </li>
+                                <li>
+                                    <a href="typo.html">Typography</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+        <!-- MENU SIDEBAR-->
+
+        <aside class="menu-sidebar d-none d-lg-block " >
+            <div class="logo">
+                {% comment %}<a href="#">
+                    <img src="{%  static 'images/icon/logo.png' %}" alt="Woof Waf" />
+                </a>{% endcomment %}
+                <a class="navbar-brand" href="/index">
+                    <svg t="1685327063583" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        p-id="2074" width="60px" height="60px">
+                        <path d="M840.51491965 202.02394239l-19.48151603-19.48151604c-49.1751171-49.1751171-128.51516225-49.1751171-177.53317036-0.15710901l-52.00307912 52.00307911L788.51184055 431.24597383l52.0030791-52.0030791c49.01800811-48.8608991 49.01800811-128.35805326 0-177.21895234zM566.3597141 259.52583649C530.69597103 295.18957957 521.42654002 346.72133168 537.60876705 391.02606977l-0.157109 0.15710898-284.99572656 285.30994457c-5.49881501 5.49881501-5.49881501 14.61113702 0 20.26706105l27.49407505 27.49407505-64.57179914 64.57179914L233.91706944 807.36492059l64.41469013-64.41469014 27.49407506 27.49407508c2.82796201 2.82796201 6.28436002 4.08483399 10.05497602 4.08483399 4.08483399 0 7.54123201-1.25687199 10.36919402-4.08483399l142.34075427-142.34075431v213.66824043h65.98578015V561.96066209L631.40284023 485.29146996c44.46184709 16.33933604 96.15070819 6.91279601 131.81445127-28.75094707l0.78554499-0.785545L566.9881501 258.74029149l-0.628436 0.785545zM554.73364807 521.42654002l-65.98578011 65.98578012-152.70994831 152.70994831-53.4170601-53.57416911 268.34217254-268.34217253c4.39905201 6.59857803 9.58364903 12.88293803 15.39668201 18.85308005l19.48151604 19.48151603c5.81303301 5.81303301 12.09739302 10.84052103 18.53886204 15.23957304L554.73364807 521.42654002z" fill="#2c2c2c" p-id="2075"></path></svg>
+
+                    <span>
+                      Speech scoring system
+                    </span>
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+
+
+                        <li class="{% block index_active %}{% endblock %}">
+                            <a  href="{% url 'WoofWaf-views-index' %}" style="text-decoration:none">
+                                <i class="fas fa-home "></i>&nbsp;&nbsp;WAF-首页</a>
+
+                        </li>
+
+                    {#                    用户管理#}
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#" style="text-decoration:none">
+                                <i class="fa fa-user"></i>    用户管理</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list " style="display: {% block u %}{% endblock %}">
+
+                                <li class="{% block user_management_active %}{% endblock %}">
+                            <a href="{% url 'WoofWaf-user-management' %}" style="text-decoration:none">
+                                <i class="fa fa-users"></i>用户信息</a>
+
+                                  <li class="{% block event_review_active %}{% endblock %}">
+                            <a href="{% url 'WoofWaf-event-review' %}" style="text-decoration:none">
+                                <i class="fas fa-search"></i>赛事审核</a>
+
+                                <li class="{% block temp_user_active %}{% endblock %}">
+                            <a href="{% url 'WoofWaf-temp-user' %}" style="text-decoration:none">
+                                <i class="fa fa-user-plus"></i>临时用户</a>
+                            </ul>
+                        </li>
+
+                     <li class="has-sub">
+                            <a class="js-arrow" href="#" style="text-decoration:none">
+                                <i class="fas fa-window-maximize"></i>&nbsp;&nbsp;网站防护</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list " style="display: {% block diplayWebDefend %}{% endblock %} ">
+
+                                <li class="{% block http_active %}{% endblock %}">
+                                    <a class="fas fa-check-circle" href="{% url 'WoofWaf-views-HttpCheck' %}" style="text-decoration:none">&nbsp;&nbsp;Http安全检测</a>
+                                </li>
+
+                                <li class = "{% block cc_active %}{% endblock %}">
+                                    <a class="fas fa-minus-circle" href="{% url 'WoofWaf-views-CCDefend' %}" style="text-decoration:none">&nbsp;&nbsp;CC攻击防护</a>
+                                </li>
+
+                            {% comment %} <li class = "{% block upload_active %}{% endblock %}">
+                                    <a class="fas fa-upload" href="{% url 'WoofWaf-views-upload' %}" style="text-decoration:none ;font-style:italic;font-size: smaller">&nbsp;&nbsp;上传防护(敬请期待)</a>
+                                </li>{% endcomment %}
+
+
+                            {% comment %} <li class = "{% block intrude_active %}{% endblock %}">
+                                    <a class="fas fa-eye" href="#" style="text-decoration:none ;font-style:italic;font-size: smaller">&nbsp;&nbsp;入侵检测(敬请期待)</a>
+                                </li>{% endcomment %}
+
+                            </ul>
+                        </li>
+
+                        {% comment %}<li class=" {% block stats %}{% endblock %}">
+                            <a href="#" style="text-decoration:none ;font-style:italic;">
+                                <i class="fas fa-chart-bar"></i>数据分析(敬请期待)</a>
+                        </li>{% endcomment %}
+
+                    <li class="has-sub">
+                            <a class="js-arrow" href="#" style="text-decoration:none">
+                                <i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;日志记录</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list " style="display: {% block diplayLogRecord %}{% endblock %}">
+
+                                  <li class = "{% block defend_active %}{% endblock %}">
+                                      <a href="{% url 'WoofWaf-views-defend_log' %}" style="text-decoration:none"><i class="fas fa-industry" ></i>&nbsp;&nbsp;&nbsp;防御日志</a>
+                             </li>
+
+                                <li class = "{% block trace_active %}{% endblock %}">
+                                    <a href="{% url 'WoofWaf-views-trace_log' %}" style="text-decoration:none"><i class="fas fa-search"></i>&nbsp;&nbsp;&nbsp;溯源日志</a>
+                                </li>
+
+                                <li class = "{% block pass_active %}{% endblock %}">
+                                    <a href="{% url 'WoofWaf-views-pass_log' %}" style="text-decoration:none"><i class="fas fa-road"></i>&nbsp;&nbsp;&nbsp;放行日志</a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                     <li class="has-sub">
+                            <a class="js-arrow" href="#" style="text-decoration:none">
+                                <i class="fa fa-users"></i>黑白名单</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list " style="display: {% block WBlist %}{% endblock %}">
+
+                                  <li class="{% block ip_list_active %}{% endblock %}">
+                            <a href="{% url 'WoofWaf-views-ip_list' %}" style="text-decoration:none">
+                                <i class="fa fa-user"></i>IP黑白名单</a>
+                                    <li class="{% block temp_black_list %}{% endblock %}">
+                            <a href="{% url 'WoofWaf-views-tbl' %}" style="text-decoration:none">
+                                <i class="fa fa-user-secret"></i>IP临时黑名单</a>
+                        </li>
+                            </ul>
+                        </li>
+
+
+
+
+                        <li class=" {% block settings_active %}{% endblock %}">
+                            <a href="{%  url 'WoofWaf-views-settings' %}" style="text-decoration:none">
+                                <i class="fas fa-cogs"></i>设置</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+         <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <div class="header-button" >
+
+                                <div class="account-wrap" >
+                                    <div class="account-item clearfix js-item-menu" >
+                                        <div class="content" >
+                                            <a class="js-acc-btn" href="#">DDD</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+{#                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />#}
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">DDD</a>
+                                                    </h5>
+                                                    <span class="email">ddd@example.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+
+                                            <div class="account-dropdown__footer">
+                                                <a href="{% url 'WoofWaf-views-logout' %}">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div></div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+    <div class="main-content" >
+
+    <!-- MAIN CONTENT-->
+    {% block main_content %}{% endblock %}
+    <!-- END MAIN CONTENT-->
+    </div>
+{#    </div>#}
+
+
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+     {% block js %}{% endblock %}
+    <!-- Jquery JS-->
+    <script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{% static 'vendor/bootstrap-4.1/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-4.1/bootstrap.min.js' %}"></script>
+    <!-- Vendor JS       -->
+    <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+    <script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+    <script src="{% static 'vendor/animsition/animsition.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
+    <script src="{% static 'vendor/counter-up/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'vendor/counter-up/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'vendor/circle-progress/circle-progress.min.js' %}"></script>
+    <script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'vendor/chartjs/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/chartjs/canvasjs.min.js' %}"></script>
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <!-- Main JS-->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/ddd.js' %}"></script>
+ <script src="{% static 'js/jquery-3.5.1.js' %} "></script>
+   <script src=" {% static 'js/jquery.dataTables.min.js'  %}"></script>
+    <script src="{% static 'js/dataTables.bootstrap5.min.js' %}"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+
+
+</body>
+
+</html>
