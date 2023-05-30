@@ -15,10 +15,10 @@ speech system base on AI</br>
 
 ### 项目配置
 
-下载weights.zip，放到media目录下，例如 `speech_ai/media/weights`
+下载weights.zip，解压缩后，放到media目录下，例如 `speech_ai/media/weights`
 
 
-下载fmpeg.zip，解压缩，配置环境变量，例如`C:\Users\gongz\Desktop\ffmpeg\bin`
+下载fmpeg.zip，解压缩后，配置环境变量，例如`C:\Users\gongz\Desktop\ffmpeg\bin`
 
 
 安装mysql数据库，连接数据库，新建`speech_score`数据库，并修改项目文件夹 `speech_ai/speech_ai/setting.py`，需要修改的代码如下
