@@ -17,6 +17,7 @@ speech system base on AI</br>
 
 下载weights.zip，解压缩后，放到media目录下，例如 `speech_ai/media/weights`
 
+下载casia.zip，解压缩后，放到login/py/EGG下，例如`speech_ai/login/py/EGG/casia`
 
 下载fmpeg.zip，解压缩后，配置环境变量，例如`C:\Users\gongz\Desktop\ffmpeg\bin`
 
