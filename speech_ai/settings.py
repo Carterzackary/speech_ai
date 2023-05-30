@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-zp@37@07d1dh$2-n5ghq$*-!dcpbc!5hmr(p-z26&+i6&5(@jb
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'speach.apps.SpeachConfig',
@@ -63,6 +63,7 @@ TEMPLATES = [
                 # Adding this section should work around the issue.
                 'staticfiles': 'django.templatetags.static',
             },
+            # '404.html': '404.html',
         },
     },
 ]
@@ -105,13 +106,12 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static").replace('\\', '/')
-
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "judge/static").replace('\\', '/'),
-#     os.path.join(BASE_DIR, "login/static").replace('\\', '/'),
-#     os.path.join(BASE_DIR, "speach/static").replace('\\', '/'),
-#     os.path.join(BASE_DIR, 'WoofWaf/static').replace('\\', '/'),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "judge/static").replace('\\', '/'),
+    os.path.join(BASE_DIR, "login/static").replace('\\', '/'),
+    os.path.join(BASE_DIR, "speach/static").replace('\\', '/'),
+    os.path.join(BASE_DIR, 'WoofWaf/static').replace('\\', '/'),
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'

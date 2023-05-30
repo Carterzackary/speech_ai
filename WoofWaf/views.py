@@ -374,9 +374,9 @@ def ccSwitch(request):
         try:
             setField(cc, 'DEFAULT', 'open', rule)
             return HttpResponse("修改成功")
-            print(111)
+            # print(111)
         except:
-            print(0)
+            # print(0)
             return HttpResponse("修改失败")
         # if switchSection != "" and config != "":
         #     try:
