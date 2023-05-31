@@ -13,7 +13,7 @@ speech system base on AI</br>
 
 ## 项目运行
 
-### 项目配置
+### 配置
 
 下载weights.zip，解压缩后，放到media目录下，例如 `speech_ai/media/weights`
 
@@ -24,19 +24,16 @@ speech system base on AI</br>
 
 安装mysql数据库，连接数据库，新建`speech_score`数据库，并修改项目文件夹 `speech_ai/speech_ai/setting.py`，需要修改的代码如下
 ```
-
 DATABASES = {  
 	'default': {  
 	'ENGINE': 'django.db.backends.mysql',  
 	'NAME': 'speech_score', # 数据库名
 	'USER': 'root',  
-	'PASSWORD': '123456', # 更改成自己的数据密码
+	'PASSWORD': '123456', # 更改成自己的数据库密码
 	'HOST': '127.0.0.1',  
 	'PORT': 3306,  
 	}  
 }
-
-
 ```
 
 ### 环境
