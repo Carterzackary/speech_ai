@@ -46,7 +46,7 @@ ffmpeg-python==0.2.0
 file-read-backwards==2.0.0
 filelock==3.8.0
 fire==0.4.0
-Flask==2.2.2
+Flask==2.2.5
 flatbuffers==1.12
 fonttools==4.34.4
 gast==0.4.0
