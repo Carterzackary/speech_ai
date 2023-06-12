@@ -161,7 +161,7 @@ zope.event==4.5.0
 zope.interface==5.4.0
 
 scikit-learn==0.21.3
-transformers==4.29.1
+transformers==4.30.0
 
 Babel
 backcall
