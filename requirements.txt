@@ -29,7 +29,7 @@ cycler==0.11.0
 daphne==4.0.0
 decorator==4.4.2
 deepface==0.0.75
-Django==3.2.18
+Django==3.2.20
 django-celery==3.3.0
 django-cors-headers==3.14.0
 django-ranged-response==0.2.0
